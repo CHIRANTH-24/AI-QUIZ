@@ -2,16 +2,24 @@
 
 import * as React from "react"
 import {
+  BarChart,
+  Book,
+  BookA,
+  Bookmark,
   BookOpen,
   Bot,
   Command,
+  File,
   Frame,
   LifeBuoy,
   Map,
   PieChart,
   Send,
+  Settings,
   Settings2,
+  Settings2Icon,
   SquareTerminal,
+  Target,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -34,122 +42,139 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  navMain: [
+  navMain : [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Dashboard ",
+      url: "/dashboard",
+      icon: BookA,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Overview Panel",
+          url: "/dashboard#overview",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Quick Actions",
+          url: "/dashboard#quick-actions",
         },
         {
-          title: "Settings",
-          url: "#",
+          title: "Recent Activity",
+          url: "/dashboard#recent-activity",
         },
       ],
     },
     {
-      title: "Models",
-      url: "#",
-      icon: Bot,
+      title: "Upload Material ",
+      url: "/upload",
+      icon: File,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "File Upload",
+          url: "/upload#file-upload",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Uploaded Files",
+          url: "/upload#uploaded-files",
         },
         {
-          title: "Quantum",
-          url: "#",
+          title: "Guidelines",
+          url: "/upload#guidelines",
         },
       ],
     },
     {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
+      title: "Generate DPP ",
+      url: "/generate-dpp",
+      icon: Settings2Icon,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Content Selection",
+          url: "/generate-dpp#content-selection",
         },
         {
-          title: "Get Started",
-          url: "#",
+          title: "Customization Options",
+          url: "/generate-dpp#customization",
         },
         {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "Preview Panel",
+          url: "/generate-dpp#preview",
         },
       ],
     },
     {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
+      title: "Practice ",
+      url: "/practice",
+      icon: Target,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Practice Interface",
+          url: "/practice#interface",
         },
         {
-          title: "Team",
-          url: "#",
+          title: "Navigation Panel",
+          url: "/practice#navigation",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          title: "Review Mode",
+          url: "/practice#review",
         },
       ],
     },
-  ],
-  navSecondary: [
     {
-      title: "Support",
-      url: "#",
-      icon: LifeBuoy,
+      title: "Insights ",
+      url: "/insights",
+      icon: BarChart,
+      items: [
+        {
+          title: "Performance Charts",
+          url: "/insights#charts",
+        },
+        {
+          title: "Progress Summary",
+          url: "/insights#summary",
+        },
+        {
+          title: "Recommendations",
+          url: "/insights#recommendations",
+        },
+      ],
     },
     {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
+      title: "Saved DPPs ",
+      url: "/saved-dpps",
+      icon: Bookmark,
+      items: [
+        {
+          title: "List of Saved DPPs",
+          url: "/saved-dpps#list",
+        },
+        {
+          title: "Actions",
+          url: "/saved-dpps#actions",
+        },
+      ],
     },
     {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      title: "Settings ",
+      url: "/settings",
+      icon: Settings,
+      items: [
+        {
+          title: "Profile Settings",
+          url: "/settings#profile",
+        },
+        {
+          title: "Preferences",
+          url: "/settings#preferences",
+        },
+        {
+          title: "Subscription",
+          url: "/settings#subscription",
+        },
+      ],
     },
-  ],
+    
+  ]
 }
 
 export function AppSidebar({
@@ -177,8 +202,7 @@ export function AppSidebar({
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
