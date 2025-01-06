@@ -35,6 +35,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { UserButton } from "@clerk/nextjs"
 
 const data = {
   user: {
@@ -65,111 +66,111 @@ const data = {
     },
     {
       title: "Upload Material ",
-      url: "/upload",
+      url: "/dashboard/upload",
       icon: File,
       items: [
         {
           title: "File Upload",
-          url: "/upload#file-upload",
+          url: "/dashboard/upload#file-upload",
         },
         {
           title: "Uploaded Files",
-          url: "/upload#uploaded-files",
+          url: "/dashboard/upload#uploaded-files",
         },
         {
           title: "Guidelines",
-          url: "/upload#guidelines",
+          url: "/dashboard/upload#guidelines",
         },
       ],
     },
     {
       title: "Generate DPP ",
-      url: "/generate-dpp",
+      url: "/dashboard/generate-dpp",
       icon: Settings2Icon,
       items: [
         {
           title: "Content Selection",
-          url: "/generate-dpp#content-selection",
+          url: "/dashboard/generate-dpp#content-selection",
         },
         {
           title: "Customization Options",
-          url: "/generate-dpp#customization",
+          url: "/dashboard/generate-dpp#customization",
         },
         {
           title: "Preview Panel",
-          url: "/generate-dpp#preview",
+          url: "/dashboard/generate-dpp#preview",
         },
       ],
     },
     {
       title: "Practice ",
-      url: "/practice",
+      url: "/dashboard/practice",
       icon: Target,
       items: [
         {
           title: "Practice Interface",
-          url: "/practice#interface",
+          url: "/dashboard/practice#interface",
         },
         {
           title: "Navigation Panel",
-          url: "/practice#navigation",
+          url: "/dashboard/practice#navigation",
         },
         {
           title: "Review Mode",
-          url: "/practice#review",
+          url: "/dashboard/practice#review",
         },
       ],
     },
     {
       title: "Insights ",
-      url: "/insights",
+      url: "/dashboard/insights",
       icon: BarChart,
       items: [
         {
           title: "Performance Charts",
-          url: "/insights#charts",
+          url: "/dashboard/insights#charts",
         },
         {
           title: "Progress Summary",
-          url: "/insights#summary",
+          url: "/dashboard/insights#summary",
         },
         {
           title: "Recommendations",
-          url: "/insights#recommendations",
+          url: "/dashboard/insights#recommendations",
         },
       ],
     },
     {
       title: "Saved DPPs ",
-      url: "/saved-dpps",
+      url: "/dashboard/saved-dpps",
       icon: Bookmark,
       items: [
         {
           title: "List of Saved DPPs",
-          url: "/saved-dpps#list",
+          url: "/dashboard/saved-dpps#list",
         },
         {
           title: "Actions",
-          url: "/saved-dpps#actions",
+          url: "/dashboard/saved-dpps#actions",
         },
       ],
     },
     {
       title: "Settings ",
-      url: "/settings",
+      url: "/dashboard/settings",
       icon: Settings,
       items: [
         {
           title: "Profile Settings",
-          url: "/settings#profile",
+          url: "/dashboard/settings#profile",
         },
         {
           title: "Preferences",
-          url: "/settings#preferences",
+          url: "/dashboard/settings#preferences",
         },
         {
           title: "Subscription",
-          url: "/settings#subscription",
+          url: "/dashboard/settings#subscription",
         },
       ],
     },
@@ -205,7 +206,7 @@ export function AppSidebar({
         
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <UserButton />
       </SidebarFooter>
     </Sidebar>)
   );
