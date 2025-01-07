@@ -6,6 +6,7 @@ import TopicInput from './_components/TopicInput';
 import { v4 as uuidv4 } from "uuid";
 import axios from 'axios';
 import { useUser } from "@clerk/nextjs";
+import  { useRouter } from 'next/navigation';
 
 const Create = () => {
         const user = useUser();
@@ -13,6 +14,7 @@ const Create = () => {
         const [formData, setFormData] = useState([]);
         const [isLoading, setIsLoading] = useState(false);
         const courseId = uuidv4();
+        const router = useRouter();
         const createdBy = user?.fullName || "unknown";
         const handleUserInput = (fieldName, fieldValue) => {
                 setFormData(prev => ({ ...prev, [fieldName]: fieldValue }));
@@ -26,19 +28,16 @@ const Create = () => {
         
        
         const GenerateCourseOutline = async () => {
-                try {
                 setIsLoading(true);
                         const result = await axios.post('/api/generate-course-outline', {
                                 courseId: courseId,
                                 ...formData,
                                 createdBy: createdBy,
                         });
+
                         console.log("API is hit", result.data.result.resp);
-                } catch (error) {
-                        console.error("Error generating course outline", error);
-                } finally {
-                        setIsLoading(false);
-                }
+                setIsLoading(false);
+                router.push("/dashboard");
         };
         return (
                 <div className='w-full mt-10'>
