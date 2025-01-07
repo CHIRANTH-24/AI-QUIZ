@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from 'axios';
 import { useUser } from "@clerk/nextjs";
 import  { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const Create = () => {
         const user = useUser();
@@ -37,7 +38,9 @@ const Create = () => {
 
                         console.log("API is hit", result.data.result.resp);
                 setIsLoading(false);
-                router.push("/dashboard");
+                router.replace("/dashboard");
+                toast("Your course content is generating, Click on refresh");
+
         };
         return (
                 <div className='w-full mt-10'>
