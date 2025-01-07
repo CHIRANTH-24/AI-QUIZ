@@ -6,42 +6,42 @@ import TopicInput from './_components/TopicInput';
 import { v4 as uuidv4 } from "uuid";
 import axios from 'axios';
 import { useUser } from "@clerk/nextjs";
+import  { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const Create = () => {
+        const user = useUser();
         const [state, setState] = useState(0);
         const [formData, setFormData] = useState([]);
         const [isLoading, setIsLoading] = useState(false);
-        const user = useUser();
-        useEffect(() => {
-                console.log("Updated formData:", formData);
-        }, [formData]);
+        const courseId = uuidv4();
+        const router = useRouter();
+        const createdBy = user?.user?.fullName || "unknown";
         const handleUserInput = (fieldName, fieldValue) => {
                 setFormData(prev => ({ ...prev, [fieldName]: fieldValue }));
                 console.log(formData);
         };
 
+        useEffect(() => {
+                console.log("Updated formData:", formData);
+                
+        }, [formData]);
+        
        
         const GenerateCourseOutline = async () => {
                 setIsLoading(true);
-                try {
-                        const courseId = uuidv4();
-                        const createdBy = user?.primaryEmailAddress?.emailAddress ?? "unknown";
-
                         const result = await axios.post('/api/generate-course-outline', {
                                 courseId: courseId,
                                 ...formData,
                                 createdBy: createdBy,
                         });
 
-                        console.log("API is hit", result.data);
-                } catch (error) {
-                        console.error("Error generating course outline", error);
-                } finally {
-                        setIsLoading(false);
-                }
+                        console.log("API is hit", result.data.result.resp);
+                setIsLoading(false);
+                router.replace("/dashboard");
+                toast("Your course content is generating, Click on refresh");
+
         };
-
-
         return (
                 <div className='w-full mt-10'>
                         <div className='flex-row justify-evenly'>

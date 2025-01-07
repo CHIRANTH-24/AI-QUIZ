@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { courseOutline } from "../../../../configs/AIModal";
 import { STUDY_MATERIAL_TABLE } from "../../../../configs/schema";
 import db from "../../../../configs/db";
+import { inngest } from "@/inngest/client";
 
 export async function POST(req) {
 
@@ -13,6 +14,7 @@ export async function POST(req) {
         PROMPT
     )
     const aiResult = JSON.parse(aiResp.response.text());
+    console.log("Here is the error")
 
     //Save to DB
     const dbResult = await db.insert(STUDY_MATERIAL_TABLE).values({
@@ -23,9 +25,19 @@ export async function POST(req) {
           courseLayout: aiResult,
           createdBy: createdBy,
         
-    }).returning(STUDY_MATERIAL_TABLE)
+    }).returning({resp:STUDY_MATERIAL_TABLE})
 
     console.log(dbResult);
+
+    //Trigger the inngest fucntion to generate notes
+
+    const result = await inngest.send({
+      name: 'notes.generate',
+      data: {
+        course: dbResult[0].resp,
+      },
+    });
+    console.log(result);
 
     return NextResponse.json({result:dbResult[0]})
 }

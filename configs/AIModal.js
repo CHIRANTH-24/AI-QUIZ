@@ -44,3 +44,24 @@ export const courseOutline = model.startChat({
 
   // const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
   // console.log(result.response.text());
+export const generateNotesAiModel = model.startChat({
+  generationConfig,
+  history: [
+    {
+      role: "user",
+      parts: [
+        {
+          text: 'Generate exam material detail content for each chapter, Make sure to include al topic points in the content , make sure to give content in HTML format (Do not include HTML, Head, Body, title tag), The Chapters:  "chapters": [\n    {\n      "chapterNumber": 1,\n      "chapterTitle": "Introduction to ReactJS and Setting Up",\n      "summary": "This chapter introduces the concept of ReactJS as a JavaScript library for building user interfaces. It covers the steps for setting up a React development environment, including using create-react-app. The focus is on getting a basic React application running without requiring deep knowledge of JavaScript build tools.",\n      "topics": [\n        "What is ReactJS?",\n        "Why use ReactJS?",\n        "Setting up a development environment with create-react-app",\n        "Understanding the basic project structure",\n        "Running your first React app"\n      ]\n    },',
+        },
+      ],
+    },
+    {
+      role: "model",
+      parts: [
+        {
+          text: "<div>\n        <h2>Chapter 1: Introduction to ReactJS and Setting Up</h2>\n        <p><strong>Summary:</strong> This chapter introduces the concept of ReactJS as a JavaScript library for building user interfaces. It covers the steps for setting up a React development environment, including using create-react-app. The focus is on getting a basic React application running without requiring deep knowledge of JavaScript build tools.</p>\n        \n        <h3>Topics:</h3>\n        <ul>\n            <li>\n                <h4>What is ReactJS?</h4>\n                <p>\n                    <ul>\n                        <li>Definition of ReactJS as a JavaScript library.</li>\n                        <li>Focus on building user interfaces.</li>\n                        <li>React's component-based architecture.</li>\n                         <li>Overview of React's virtual DOM concept.</li>\n                        <li>Introduction to declarative programming paradigm.</li>\n                    </ul>\n                </p>\n            </li>\n            <li>\n                <h4>Why use ReactJS?</h4>\n                 <p>\n                    <ul>\n                        <li>Advantages of using ReactJS.</li>\n                         <li>Emphasis on creating reusable UI components.</li>\n                        <li>Efficiency of the virtual DOM updates.</li>\n                        <li>React's large community and ecosystem.</li>\n                        <li>Benefits for building complex UIs.</li>\n                    </ul>\n                </p>\n            </li>\n            <li>\n                <h4>Setting up a development environment with create-react-app</h4>\n                <p>\n                    <ul>\n                        <li>Introduction to create-react-app.</li>\n                       <li>Steps for installing Node.js and npm/yarn.</li>\n                        <li>Command for creating a new React application.</li>\n                        <li>Understanding the project creation process.</li>\n                    </ul>\n                </p>\n            </li>\n            <li>\n                <h4>Understanding the basic project structure</h4>\n                <p>\n                    <ul>\n                        <li>Overview of key files and folders in the project.</li>\n                        <li>Explanation of the `public` directory (e.g., `index.html`).</li>\n                        <li>Explanation of the `src` directory (e.g., `index.js`, `App.js`).</li>\n                        <li>Understanding `package.json` for project dependencies and scripts.</li>\n                        <li>Role of `node_modules` directory.</li>\n                    </ul>\n                </p>\n            </li>\n            <li>\n                <h4>Running your first React app</h4>\n                <p>\n                   <ul>\n                        <li>Command to start the development server.</li>\n                        <li>Viewing the app in the web browser.</li>\n                        <li>Overview of the default React app content.</li>\n                         <li>Making simple changes to the app (e.g., editing `App.js`).</li>\n                        <li>Observing changes with hot reloading.</li>\n                    </ul>\n                </p>\n            </li>\n        </ul>\n    </div>\n\n",
+        },
+      ],
+    },
+  ],
+});
