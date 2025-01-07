@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { courseOutline } from "../../../../configs/AIModal";
 import { STUDY_MATERIAL_TABLE } from "../../../../configs/schema";
 import db from "../../../../configs/db";
+import { inngest } from "@/inngest/client";
 
 export async function POST(req) {
 
@@ -27,6 +28,10 @@ export async function POST(req) {
     }).returning({resp:STUDY_MATERIAL_TABLE})
 
     console.log(dbResult);
+
+    //Trigger the inngest fucntion to generate notes
+
+    const result = await inngest
 
     return NextResponse.json({result:dbResult[0]})
 }
