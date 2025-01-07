@@ -42,6 +42,7 @@ import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import React from 'react'
+import CourseList from './_components/CourseList';
 
 const page = () => {
   const { user } = useUser();
@@ -52,6 +53,10 @@ const page = () => {
       <Link href="/create">
         <Button>Create New Lesson</Button>
       </Link>
+
+      <div>
+        <CourseList />
+      </div>
     </div></>
   )
 }
