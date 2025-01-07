@@ -6,7 +6,7 @@ import db from "../../configs/db";
 import { USER_TABLE } from "../../configs/schema";
 import { eq } from "drizzle-orm";
 
-function Provider({ children }) {
+function  Provider({ children }) {
   const { user } = useUser();
 
   useEffect(() => {
@@ -17,25 +17,26 @@ function Provider({ children }) {
 
   const CheckIsNewUser = async () => {
     try {
-      const email = user?.primaryEmailAddress?.emailAddress;
+      const name = user?.fullName || "unknown re";
+      const email = user?.primaryEmailAddress?.emailAddress || "noemail@gmail.com";
 
-      if (!email) {
-        console.error("User email is undefined.");
+      if (!name) {
+        console.error("User name is undefined.");
         return;
       }
 
       const result = await db
         .select()
         .from(USER_TABLE)
-        .where(eq(USER_TABLE.email, email));
+        .where(eq(USER_TABLE.name, name));
 
       if (result?.length === 0) {
         // Use upsert to avoid duplicates
         const userResponse = await db
           .insert(USER_TABLE)
           .values({
-            name: user?.fullName,
-            email: email,
+            name: name,
+            email: email
           })
           .onConflictDoNothing(); // Prevents duplicate insertion
         console.log(userResponse);

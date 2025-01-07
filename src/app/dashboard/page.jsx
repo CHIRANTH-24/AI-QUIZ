@@ -22,7 +22,7 @@
 //         <header className="flex h-16 shrink-0 items-center gap-2">
 //           <div className="flex items-center gap-2 px-4">
 //             <SidebarTrigger className="-ml-1" />
-           
+
 //           </div>
 //         </header>
 //         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
@@ -37,13 +37,22 @@
 //     </SidebarProvider>)
 //   );
 // }
+"use client";
+import { Button } from '@/components/ui/button';
+import { useUser } from '@clerk/nextjs';
+import Link from 'next/link';
 import React from 'react'
 
 const page = () => {
+  const { user } = useUser();
   return (
-    <div>
-      dashboard
-    </div>
+    <><div>
+      <h1>Hello! {user?.fullName}</h1>
+      <h1>{user?.primaryEmailAddress?.emailAddress}</h1>
+      <Link href="/create">
+        <Button>Create New Lesson</Button>
+      </Link>
+    </div></>
   )
 }
 

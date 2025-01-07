@@ -8,40 +8,38 @@ import axios from 'axios';
 import { useUser } from "@clerk/nextjs";
 
 const Create = () => {
+        const user = useUser();
         const [state, setState] = useState(0);
         const [formData, setFormData] = useState([]);
         const [isLoading, setIsLoading] = useState(false);
-        const user = useUser();
-        useEffect(() => {
-                console.log("Updated formData:", formData);
-        }, [formData]);
+        const courseId = uuidv4();
+        const createdBy = user?.fullName || "unknown";
         const handleUserInput = (fieldName, fieldValue) => {
                 setFormData(prev => ({ ...prev, [fieldName]: fieldValue }));
                 console.log(formData);
         };
 
+        useEffect(() => {
+                console.log("Updated formData:", formData);
+                
+        }, [formData]);
+        
        
         const GenerateCourseOutline = async () => {
-                setIsLoading(true);
                 try {
-                        const courseId = uuidv4();
-                        const createdBy = user?.primaryEmailAddress?.emailAddress ?? "unknown";
-
+                setIsLoading(true);
                         const result = await axios.post('/api/generate-course-outline', {
                                 courseId: courseId,
                                 ...formData,
                                 createdBy: createdBy,
                         });
-
-                        console.log("API is hit", result.data);
+                        console.log("API is hit", result.data.result.resp);
                 } catch (error) {
                         console.error("Error generating course outline", error);
                 } finally {
                         setIsLoading(false);
                 }
         };
-
-
         return (
                 <div className='w-full mt-10'>
                         <div className='flex-row justify-evenly'>

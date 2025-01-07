@@ -13,6 +13,7 @@ export async function POST(req) {
         PROMPT
     )
     const aiResult = JSON.parse(aiResp.response.text());
+    console.log("Here is the error")
 
     //Save to DB
     const dbResult = await db.insert(STUDY_MATERIAL_TABLE).values({
@@ -23,7 +24,7 @@ export async function POST(req) {
           courseLayout: aiResult,
           createdBy: createdBy,
         
-    }).returning(STUDY_MATERIAL_TABLE)
+    }).returning({resp:STUDY_MATERIAL_TABLE})
 
     console.log(dbResult);
 
