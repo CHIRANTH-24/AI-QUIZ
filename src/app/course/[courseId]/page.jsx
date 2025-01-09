@@ -1,5 +1,7 @@
 "use client";
+import ChapterList from '@/components/ChapterList';
 import CourseIntroCard from '@/components/CourseIntroCard';
+import StudyMaterialSection from '@/components/StudyMaterialSection';
 import { UserButton } from '@clerk/nextjs';
 import axios from 'axios';
 import { useParams } from 'next/navigation';
@@ -20,11 +22,12 @@ function page() {
 
     }
   return (
-    <div>
+    <div className=''>
           <UserButton />
-          
-          <div>
-              <CourseIntroCard course={course} />
+          <div className="mx-10 md:mx-36 lg-px-60 mt-10">
+          <CourseIntroCard course={course} />
+          <StudyMaterialSection />
+          <ChapterList course={course} />
           </div>
     </div>
   )
