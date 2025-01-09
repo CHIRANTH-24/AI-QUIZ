@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar"
+import SnowEffect from "@/components/SnowEffect";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -17,7 +18,7 @@ import {
 export default function Page({children}) {
     return (
         <div>
-            {(<SidebarProvider>
+            {(<SidebarProvider> 
                 <AppSidebar />
                 <SidebarInset>
                     <header className="flex h-16 shrink-0 items-center gap-2">
@@ -33,6 +34,7 @@ export default function Page({children}) {
                             <div className="aspect-video rounded-xl bg-muted/50" />
                         </div>
                         <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" /> */}
+                        <SnowEffect />
                         {
                             children
                         }
