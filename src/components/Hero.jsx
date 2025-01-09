@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 // Define assets with public paths
 const assets = {
@@ -112,10 +113,12 @@ export default function Hero() {
         AI-driven revision with limitless practice and real-time grading
       </p>
       <div className="hero-content flex flex-col sm:flex-row items-center justify-center gap-4">
+       <Link href="/dashboard">
         <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2">
           Get Started
           <ArrowRight className="h-5 w-5" />
         </button>
+        </Link>
         <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 text-white rounded-lg text-lg font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2">
           Start Learning
           <ArrowRight className="h-5 w-5" />

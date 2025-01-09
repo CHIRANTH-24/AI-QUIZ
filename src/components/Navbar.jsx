@@ -1,56 +1,3 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { Moon, Sun } from 'lucide-react';
-
-// export default function Navbar() {
-//   const [isDark, setIsDark] = useState(false);
-
-//   const toggleTheme = () => {
-//     setIsDark(!isDark);
-//     document.documentElement.classList.toggle('dark');
-//   };
-
-//   return (
-//     <nav className="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="flex items-center justify-between h-16">
-//           <div className="flex items-center">
-//             <Link to="/" className="flex items-center space-x-2">
-//               <img src="/api/placeholder/40/40" alt="PrepePundit Logo" className="h-10" />
-//               <span className="text-xl font-bold">PrepePundit AI</span>
-//             </Link>
-//             <div className="hidden md:block ml-10">
-//               <div className="flex items-baseline space-x-4">
-//                 {['IBDP', 'IGCSE', 'Dashboard', 'Analytics', 'Pricing'].map((item) => (
-//                   <Link
-//                     key={item}
-//                     to={`/${item.toLowerCase()}`}
-//                     className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
-//                   >
-//                     {item}
-//                   </Link>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//           <div className="flex items-center space-x-4">
-//             <button
-//               onClick={toggleTheme}
-//               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
-//             >
-//               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-//             </button>
-//             <img
-//               src="/api/placeholder/32/32"
-//               alt="User"
-//               className="h-8 w-8 rounded-full hover:scale-110 transition-all duration-200"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -66,7 +13,7 @@ const assets = {
 
 const NAV_ITEMS = [
   { name: 'Dashboard', path: '/dashboard' },
-  { name: 'Analytics', path: '/analytics' },
+  { name: 'Analytics', path: '/create' },
   
 ];
 
