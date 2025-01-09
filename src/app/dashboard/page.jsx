@@ -38,11 +38,12 @@
 //   );
 // }
 "use client";
+import CourseList from '@/components/CourseList';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import React from 'react'
-import CourseList from './_components/CourseList';
+
 
 const page = () => {
   const { user } = useUser();
