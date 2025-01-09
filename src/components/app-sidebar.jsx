@@ -37,6 +37,8 @@ import {
 } from "@/components/ui/sidebar"
 import { UserButton } from "@clerk/nextjs"
 import SnowEffect from "./SnowEffect"
+import Image from "next/image"
+import Link from "next/link"
 
 const data = {
   user: {
@@ -44,7 +46,14 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  navMain : [
+  navMain: [
+    {
+      title: "Generate ",
+      url: "/create",
+      icon: Settings2Icon,
+      isActive: true
+    },
+    ,
     {
       title: "Dashboard ",
       url: "/dashboard",
@@ -52,55 +61,22 @@ const data = {
       isActive: true
     },
     {
-      title: "Upload Material ",
-      url: "/dashboard/upload",
-      icon: File,
-      
-    },
-    {
-      title: "Generate DPP ",
-      url: "/create",
-      icon: Settings2Icon,
-    },
-    {
       title: "Practice ",
       url: "/dashboard/practice",
       icon: Target,
-     
+
     },
+    
     {
       title: "Insights ",
       url: "/dashboard/insights",
       icon: BarChart,
-      items: [
-        {
-          title: "Performance Charts",
-          url: "/dashboard/insights#charts",
-        },
-        {
-          title: "Progress Summary",
-          url: "/dashboard/insights#summary",
-        },
-        {
-          title: "Recommendations",
-          url: "/dashboard/insights#recommendations",
-        },
-      ],
     },
     {
-      title: "Saved DPPs ",
-      url: "/dashboard/saved-dpps",
+      title: "Brain Rot ",
+      url: "/dashboard/brain-rot",
       icon: Bookmark,
-      items: [
-        {
-          title: "List of Saved DPPs",
-          url: "/dashboard/saved-dpps#list",
-        },
-        {
-          title: "Actions",
-          url: "/dashboard/saved-dpps#actions",
-        },
-      ],
+      
     },
     
     
@@ -118,16 +94,16 @@ export function AppSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               
-              <a href="#">
+              <Link href="/">
                 <div
-                  className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  className="flex aspect-square size-8 items-center justify-center rounded-lg  text-sidebar-primary-foreground">
+                  <Image src="/assets/feature.png" height={50 } width={50 } alt="image" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">Prep Pandit</span>
                   <span className="truncate text-xs">DPP</span>
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
