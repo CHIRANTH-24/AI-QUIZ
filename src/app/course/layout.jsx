@@ -1,24 +1,24 @@
 import { AppSidebar } from "@/components/app-sidebar"
 import SnowEffect from "@/components/SnowEffect";
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
+    SidebarInset,
+    SidebarProvider,
+    SidebarTrigger,
 } from "@/components/ui/sidebar"
 
-export default function Page({children}) {
+export default function Page({ children }) {
     return (
         <div>
-            {(<SidebarProvider> 
+            {(<SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
                     <header className="flex h-16 shrink-0 items-center gap-2">
@@ -41,7 +41,7 @@ export default function Page({children}) {
                     </div>
                 </SidebarInset>
             </SidebarProvider>)}
-      </div>
-    
-  );
+        </div>
+
+    );
 }

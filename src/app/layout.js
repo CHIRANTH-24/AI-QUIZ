@@ -3,6 +3,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./provider";
 import { Toaster } from "@/components/ui/sonner";
+import SnowEffect from "@/components/SnowEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,9 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Provider>{children}</Provider>
+          <Provider>
+            {children}
+          </Provider>
           <Toaster />
         </body>
       </html>

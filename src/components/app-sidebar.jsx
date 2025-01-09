@@ -36,6 +36,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { UserButton } from "@clerk/nextjs"
+import SnowEffect from "./SnowEffect"
 
 const data = {
   user: {
@@ -48,78 +49,24 @@ const data = {
       title: "Dashboard ",
       url: "/dashboard",
       icon: BookA,
-      isActive: true,
-      items: [
-        {
-          title: "Overview Panel",
-          url: "/dashboard#overview",
-        },
-        {
-          title: "Quick Actions",
-          url: "/dashboard#quick-actions",
-        },
-        {
-          title: "Recent Activity",
-          url: "/dashboard#recent-activity",
-        },
-      ],
+      isActive: true
     },
     {
       title: "Upload Material ",
       url: "/dashboard/upload",
       icon: File,
-      items: [
-        {
-          title: "File Upload",
-          url: "/dashboard/upload#file-upload",
-        },
-        {
-          title: "Uploaded Files",
-          url: "/dashboard/upload#uploaded-files",
-        },
-        {
-          title: "Guidelines",
-          url: "/dashboard/upload#guidelines",
-        },
-      ],
+      
     },
     {
       title: "Generate DPP ",
-      url: "/dashboard/generate-dpp",
+      url: "/create",
       icon: Settings2Icon,
-      items: [
-        {
-          title: "Content Selection",
-          url: "/dashboard/generate-dpp#content-selection",
-        },
-        {
-          title: "Customization Options",
-          url: "/dashboard/generate-dpp#customization",
-        },
-        {
-          title: "Preview Panel",
-          url: "/dashboard/generate-dpp#preview",
-        },
-      ],
     },
     {
       title: "Practice ",
       url: "/dashboard/practice",
       icon: Target,
-      items: [
-        {
-          title: "Practice Interface",
-          url: "/dashboard/practice#interface",
-        },
-        {
-          title: "Navigation Panel",
-          url: "/dashboard/practice#navigation",
-        },
-        {
-          title: "Review Mode",
-          url: "/dashboard/practice#review",
-        },
-      ],
+     
     },
     {
       title: "Insights ",
@@ -155,25 +102,7 @@ const data = {
         },
       ],
     },
-    {
-      title: "Settings ",
-      url: "/dashboard/settings",
-      icon: Settings,
-      items: [
-        {
-          title: "Profile Settings",
-          url: "/dashboard/settings#profile",
-        },
-        {
-          title: "Preferences",
-          url: "/dashboard/settings#preferences",
-        },
-        {
-          title: "Subscription",
-          url: "/dashboard/settings#subscription",
-        },
-      ],
-    },
+    
     
   ]
 }
@@ -182,11 +111,13 @@ export function AppSidebar({
   ...props
 }) {
   return (
+    
     (<Sidebar variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
+              
               <a href="#">
                 <div
                   className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
@@ -202,6 +133,7 @@ export function AppSidebar({
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
+        <SnowEffect />
         <NavMain items={data.navMain} />
         
       </SidebarContent>

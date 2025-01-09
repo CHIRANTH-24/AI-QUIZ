@@ -7,65 +7,65 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: '#FF6961',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			},
-  			sidebar: {
-  				DEFAULT: 'hsl(var(--sidebar-background))',
-  				foreground: 'hsl(var(--sidebar-foreground))',
-  				primary: 'hsl(var(--sidebar-primary))',
-  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-  				accent: 'hsl(var(--sidebar-accent))',
-  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-  				border: 'hsl(var(--sidebar-border))',
-  				ring: 'hsl(var(--sidebar-ring))'
-  			}
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+    extend: {
+      colors: {
+        background: "#111827", // Dark gray for background
+        foreground: "#F3F4F6", // Soft light gray for text
+        card: {
+          DEFAULT: "#1E293B", // Neutral dark shade
+          foreground: "#E5E7EB", // Light gray for card content
+        },
+        popover: {
+          DEFAULT: "#374151", // Slightly lighter dark gray
+          foreground: "#D1D5DB", // Muted light gray
+        },
+        primary: {
+          DEFAULT: "#2563eb", // Vibrant blue
+          foreground: "#FFFFFF", // White for contrast
+        },
+        secondary: {
+          DEFAULT: "#4B5563", // Cool gray
+          foreground: "#E5E7EB", // Light gray
+        },
+        muted: {
+          DEFAULT: "#6B7280", // Muted mid-gray
+          foreground: "#9CA3AF", // Softer muted gray
+        },
+        accent: {
+          DEFAULT: "#F59E0B", // Warm yellow accent
+          foreground: "#1F2937", // Dark gray for contrast
+        },
+        destructive: {
+          DEFAULT: "#DC2626", // Bright red for destructive actions
+          foreground: "#FFFFFF", // White for high contrast
+        },
+        border: "#374151", // Neutral border gray
+        input: "#1F2937", // Dark gray for input fields
+        ring: "#2563eb", // Blue for focus rings
+        chart: {
+          1: "#2563eb", // Blue
+          2: "#22C55E", // Green
+          3: "#FACC15", // Yellow
+          4: "#EF4444", // Red
+          5: "#8B5CF6", // Purple
+        },
+        sidebar: {
+          DEFAULT: "#111827", // Sidebar dark gray
+          foreground: "#F3F4F6", // Soft light gray for text
+          primary: "#2563eb", // Sidebar blue
+          "primary-foreground": "#FFFFFF", // White for contrast
+          accent: "#F59E0B", // Sidebar accent yellow
+          "accent-foreground": "#1F2937", // Dark gray for contrast
+          border: "#1E293B", // Sidebar border gray
+          ring: "#2563eb", // Sidebar focus ring blue
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };
