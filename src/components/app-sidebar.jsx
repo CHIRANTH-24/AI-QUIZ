@@ -73,8 +73,8 @@ const data = {
       icon: BarChart,
     },
     {
-      title: "Brain Rot ",
-      url: "/dashboard/brain-rot",
+      title: "Chat Bot ",
+      url: 'https://app.droxy.ai/agent/6780a5cc87b7a00b52e19062',
       icon: Bookmark,
       
     },
