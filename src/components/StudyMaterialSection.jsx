@@ -10,17 +10,17 @@ const StudyMaterialSection = () => {
             icon: '/assets/exam.png',
             path: '/notes/'
         },
-        {
-            name: 'Flash Cards',
-            desc: 'Flash cards help to remeber the concept',
-            icon: '/assets/content.png',
-            path: '/flashcards'
-        },
+        // {
+        //     name: 'Flash Cards',
+        //     desc: 'Flash cards help to remeber the concept',
+        //     icon: '/assets/content.png',
+        //     path: '/flashcards'
+        // },
         {
             name: 'Quiz',
             desc: 'Great way to test your knowledge',
             icon: '/assets/quiz.png',
-            path: '/quiz'
+            path: 'https://sensational-empanada-52c7a0.netlify.app/'
         },
         {
             name: 'Question/Answers',
@@ -32,7 +32,7 @@ const StudyMaterialSection = () => {
   return (
     <div className='mt-8'>
           <h2 className="font-medium text-xl">Study Material </h2>
-          <div className='grid grid-cols-2 md:grid-cols-4'>
+          <div className='grid grid-cols-2 md:grid-cols-3'>
               {
                   MaterialList.map((item, index) => {
                       return <MaterialCardItem item={item} key={index} />

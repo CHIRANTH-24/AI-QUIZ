@@ -62,14 +62,14 @@ const data = {
     },
     {
       title: "Practice ",
-      url: "/dashboard/practice",
+      url: "https://sensational-empanada-52c7a0.netlify.app/",
       icon: Target,
 
     },
     
     {
       title: "Insights ",
-      url: "/dashboard/insights",
+      url: "https://lively-creponne-4c0600.netlify.app/",
       icon: BarChart,
     },
     {

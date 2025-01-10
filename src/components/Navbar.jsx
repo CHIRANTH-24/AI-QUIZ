@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Moon, Sun } from 'lucide-react';
 import { UserButton } from '@clerk/nextjs';
+import { Button } from './ui/button';
 
 // Define asset paths
 const assets = {
@@ -13,7 +14,7 @@ const assets = {
 
 const NAV_ITEMS = [
   { name: 'Dashboard', path: '/dashboard' },
-  { name: 'Analytics', path: '/create' },
+  { name: 'Sign-up', path: '/sign-up' },
   
 ];
 
@@ -77,8 +78,10 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
+                
               </div>
             </div>
+            
           </div>
 
           <div className="flex items-center space-x-4">
