@@ -9,6 +9,7 @@ import { useUser } from "@clerk/nextjs";
 import  { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { TypewriterEffectSmooth } from '@/components/ui/type-writereffect';
+import InputComponent from '@/components/InputComponent';
 
 const Create = () => {
         const { user } = useUser();
@@ -53,12 +54,16 @@ const Create = () => {
                         <div className='flex-row justify-evenly'>
                                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-pink-400 dark:from-indigo-300 dark:to-pink-300 text-transparent bg-clip-text">Hello! {user?.fullName} </h1>
                                 <h6 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-pink-400 dark:from-indigo-300 dark:to-pink-300 text-transparent bg-clip-text"><TypewriterEffectSmooth words={words} /></h6>       
-                                <div className=''>
+                                <div className='mt-2'>
                                        
-                                                <SelectOption selectedStudyType={(value) => handleUserInput('studyType', value)} /> :
-                                                <div className='ml-10'>
+                                        <SelectOption selectedStudyType={(value) => handleUserInput('studyType', value)} />
+                                        <div>
+                                                <InputComponent />
+                                        </div>
+                                                <div className='mt-4'>
                                                         <TopicInput selectDifficultyLevel={(value) => handleUserInput('difficulty', value)} setTopic={(value) => handleUserInput('topic', value)} />
-                                                </div>
+                                        </div>
+                                        
                                         
                                 </div>
                         </div>

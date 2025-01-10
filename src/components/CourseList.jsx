@@ -32,7 +32,7 @@ const CourseList = () => {
     return (
         <div>
 
-            <h2 className="font-bold text-2xl mt-10 flex justify-between">Your study material
+            <h2 className="font-bold text-2xl mt-10 flex justify-between">
                 <Button variant="outline" onClick={GetCourseList}><RefreshCcw />Refresh</Button>
             </h2>
 

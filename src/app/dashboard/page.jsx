@@ -40,25 +40,31 @@
 "use client";
 import CourseList from '@/components/CourseList';
 import { Button } from '@/components/ui/button';
+import { TypewriterEffectSmooth } from '@/components/ui/type-writereffect';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import React from 'react'
 
+const words = [
+  {
+    text: "Work Smart, Not Hard",
+  },
+
+];
 
 const page = () => {
   const { user } = useUser();
   return (
-    <><div>
-      <h1>Hello! {user?.fullName}</h1>
-      <h1>{user?.primaryEmailAddress?.emailAddress}</h1>
-      <Link href="/create">
-        <Button>Create New Lesson</Button>
-      </Link>
-
+    <>
+      <div>
+        
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-pink-400 dark:from-indigo-300 dark:to-pink-300 text-transparent bg-clip-text">{user?.firstName} </h1>
+          <h6 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-pink-400 dark:from-indigo-300 dark:to-pink-300 text-transparent bg-clip-text"><TypewriterEffectSmooth words={words} /></h6>   
       <div>
         <CourseList />
       </div>
-    </div></>
+      </div>
+    </>
   )
 }
 
