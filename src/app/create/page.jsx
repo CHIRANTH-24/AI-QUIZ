@@ -18,7 +18,7 @@ const Create = () => {
         const [isLoading, setIsLoading] = useState(false);
         const courseId = uuidv4();
         const router = useRouter();
-        const createdBy = user?.user?.fullName || "unknown";
+        const createdBy = user?.fullName || "unknown";
         const handleUserInput = (fieldName, fieldValue) => {
                 setFormData(prev => ({ ...prev, [fieldName]: fieldValue }));
                 console.log(formData);
