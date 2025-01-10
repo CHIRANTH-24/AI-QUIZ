@@ -10,7 +10,7 @@ const CourseIntroCard = ({ course }) => {
             <div>
                 <Image alt="image" src={'/assets/content.png' } height={70} width={50}/>
                 <h1 className="text-xl">{course?.courseLayout?.courseTitle}</h1>
-                <h4 className="line-clamp-2">{course?.courseLayout?.courseSummary}</h4>
+                <h4 className="line-clamp-2 text-gray-400">{course?.courseLayout?.courseSummary}</h4>
                 <Progress className="mt-3" />
                 <h2  className='text-xl text-primary'>Total chapters:{course?.courseLayout?.chapters?.length}</h2>
                 

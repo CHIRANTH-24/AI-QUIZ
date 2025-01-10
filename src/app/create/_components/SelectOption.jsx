@@ -28,25 +28,38 @@ const SelectOption = ({selectedStudyType}) => {
     const [selected, setSelected] = useState("exam");
     useEffect(() => { setSelected(selected)},[])
   return (
-    <div className=''>
-          <h2>Select your category</h2>
-          <div className='flex gap-10'>
-              {
-                  options.map((option, index) => {
-                      return (
-                          <div
-                          key={index}
-                              className={`border rounded hover:border-primary cursor-pointer${option.name==selected&&` border-primary`}`}
-                              onClick={() => { setSelected(option.name); selectedStudyType(option.name) }}
-                          >
-                              <Image height={50} width={50} src={option.image} alt="img" />
-                              <h1>{option.name}</h1>
-                          </div>
-                      )
-                  })
-              }
+      <div className="p-6">
+          <h3 className="text-2xl font-extrabold mb-8 bg-gradient-to-r from-indigo-500 to-pink-500 dark:from-indigo-400 dark:to-pink-400 text-transparent bg-clip-text text-center">
+              What are you preparing for?
+          </h3>
+          <div className="flex flex-wrap gap-6 justify-center">
+              {options.map((option, index) => (
+                  <div
+                      key={index}
+                      className={`group w-36 p-4 border rounded-lg hover:shadow-lg transition-transform duration-200 hover:scale-105 ${option.name === selected
+                              ? "border-primary bg-primary-light"
+                              : "border-gray-300 dark:border-gray-600"
+                          } cursor-pointer`}
+                      onClick={() => {
+                          setSelected(option.name);
+                          selectedStudyType(option.name);
+                      }}
+                  >
+                      <Image
+                          height={50}
+                          width={50}
+                          src={option.image}
+                          alt={`${option.name} image`}
+                          className="mx-auto"
+                      />
+                      <h1 className="text-center mt-4 text-lg font-medium group-hover:text-primary dark:group-hover:text-primary-light">
+                          {option.name}
+                      </h1>
+                  </div>
+              ))}
           </div>
-    </div>
+      </div>
+
   )
 }
 

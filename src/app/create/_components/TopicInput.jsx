@@ -12,9 +12,10 @@ import React from 'react'
 const TopicInput = ({ setTopic, selectDifficultyLevel }) => {
   return (
     <div className="">
-          <h1>Enter your Text here:</h1>
-          <Textarea placeholder="enter your prompt here" className="mb-10 w-full" onChange={(e)=>{setTopic(e.target.value)}} />
-          <h1 className="mt-5">Select your difficulty level:</h1>
+          <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-pink-400 dark:from-indigo-300 dark:to-pink-300 text-transparent bg-clip-text">Let us know what topics are you wiiling to focus on?</h3>
+          <Textarea placeholder="eg: DSA, CN..." className="mb-10 w-full" onChange={(e)=>{setTopic(e.target.value)}} />
+          <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-pink-400 dark:from-indigo-300 dark:to-pink-300 text-transparent bg-clip-text">Select your difficulty</h3>
+
           <div>
               <Select onValueChange={(value)=>selectDifficultyLevel(value)}>
                   <SelectTrigger className="w-full">

@@ -26,7 +26,7 @@ const StudyMaterialSection = () => {
             name: 'Question/Answers',
             desc: 'Help to practice',
             icon: '/assets/qa.png',
-            path: '/qa'
+            path:'https://app.droxy.ai/agent/6780a5cc87b7a00b52e19062'
         }
     ]
   return (
